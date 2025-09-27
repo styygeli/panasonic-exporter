@@ -40,7 +40,7 @@ The exporter is configured via a file named `.env` placed in the same directory 
 2.  Add the URL for your breaker box and the JSON mappings for your circuits:
     ```ini
     # URL to the CSV data file from the breaker box
-    PANASONIC_URL="[http://192.168.1.100/csv/InstVal.csv](http://192.168.1.100/csv/InstVal.csv)"
+    PANASONIC_URL="http://192.168.1.100/csv/InstVal.csv"
 
     # JSON map of desired metrics to their column index in the CSV
     # The key is the 'entity' label, and the value is the column number.
