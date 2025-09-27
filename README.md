@@ -17,7 +17,7 @@ You must have a recent version of Go installed.
 
 ```bash
 # Clone the repository
-git clone [https://github.com/styygeli/panasonic-exporter.git](https://github.com/styygeli/panasonic-exporter.git)
+git clone https://github.com/styygeli/panasonic-exporter.git
 cd panasonic-exporter
 
 # Tidy dependencies
