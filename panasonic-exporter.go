@@ -109,11 +109,14 @@ func (c *panasonicCollector) Collect(ch chan<- prometheus.Metric) {
 			continue
 		}
 
-		value, err := strconv.ParseInt(dataRow[columnIndex], 16, 64)
+		// The breaker box outputs 16-bit two's complement hex values.
+		// We parse as 16-bit unsigned, then cast to int16 to get the correct negative numbers.
+		uintVal, err := strconv.ParseUint(dataRow[columnIndex], 16, 16)
 		if err != nil {
 			log.Printf("Warning: could not parse hex value for entity '%s': %v", key, err)
 			continue
 		}
+		value := int64(int16(uintVal))
 
 		// Certain circuits require a multiplier.
 		if key == "main" || key == "ecocute" {
